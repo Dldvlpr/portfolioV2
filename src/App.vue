@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-aurora-dark via-[#1A2A3A] to-aurora-dark text-white font-sans">
+  <div class="h-screen overflow-hidden bg-gradient-to-br from-aurora-dark via-[#1A2A3A] to-aurora-dark text-white font-sans">
     <header class="backdrop-blur-md bg-white/10 border-b border-white/10 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <h1 class="text-2xl font-heading text-aurora-green">Ludovic Dormoy</h1>
@@ -37,5 +37,6 @@ import { RouterLink, RouterView } from 'vue-router'
 
 body {
   font-family: 'Inter', sans-serif;
+  overflow: hidden;
 }
 </style>
