@@ -1,6 +1,6 @@
 {
-  "name": "pfv2",
-  "version": "0.0.0",
+  "name": "ludovic-dormoy-portfolio",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
