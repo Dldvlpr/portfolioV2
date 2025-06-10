@@ -14,7 +14,6 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    // Retourne toujours en haut lors des transitions
     if (savedPosition) {
       return savedPosition
     } else {
@@ -23,9 +22,7 @@ const router = createRouter({
   }
 })
 
-// Navigation guards pour les titres
 router.beforeEach((to, from, next) => {
-  // Mettre à jour le titre de la page
   if (to.meta.title) {
     document.title = to.meta.title as string
   }
