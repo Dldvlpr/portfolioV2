@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen relative px-6 pb-32">
     <!-- Section Hero -->
-    <section class="min-h-screen flex items-center justify-center">
+    <section class="min-h-screen flex items-center justify-center aurora-section">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
         <!-- Contenu principal -->
@@ -30,21 +30,6 @@
               Spécialisé en Vue.js, React et développement moderne.
             </p>
 
-            <!-- Stats rapides -->
-            <div class="grid grid-cols-3 gap-4 mb-8">
-              <div class="text-center">
-                <div class="text-2xl font-bold text-white">5+</div>
-                <div class="text-sm text-white/60">Années d'expérience</div>
-              </div>
-              <div class="text-center">
-                <div class="text-2xl font-bold text-white">50+</div>
-                <div class="text-sm text-white/60">Projets réalisés</div>
-              </div>
-              <div class="text-center">
-                <div class="text-2xl font-bold text-white">100%</div>
-                <div class="text-sm text-white/60">Clients satisfaits</div>
-              </div>
-            </div>
 
             <!-- Actions -->
             <div class="flex flex-wrap gap-4">
@@ -84,29 +69,8 @@
               -->
             </div>
 
-            <!-- Éléments techniques flottants -->
-            <div class="absolute -top-4 -right-4 glass-floating-element animate-bounce tech-element">
-              <div class="text-2xl">⚡</div>
-            </div>
-
-            <div class="absolute -bottom-6 -left-6 glass-floating-element animate-pulse tech-element">
-              <div class="text-xl">🚀</div>
-            </div>
-
-            <div class="absolute top-1/2 -right-8 glass-floating-element animate-ping tech-element">
-              <div class="text-lg">💻</div>
-            </div>
-
-            <div class="absolute top-16 -left-8 glass-floating-element animate-bounce tech-element">
-              <div class="text-xl">🎨</div>
-            </div>
-
             <!-- Logos de technologies en arrière-plan -->
-            <div class="absolute inset-0 -z-10">
-              <div class="absolute top-12 left-8 text-blue-400/30 text-4xl animate-pulse">Vue</div>
-              <div class="absolute bottom-12 right-8 text-cyan-400/30 text-3xl animate-bounce">React</div>
-              <div class="absolute top-1/2 left-4 text-green-400/30 text-2xl animate-ping">Node</div>
-            </div>
+            <div class="absolute inset-0 -z-10"></div>
           </div>
         </div>
       </div>
@@ -199,19 +163,41 @@
   transform: scale(1.05);
 }
 
-.tech-element {
-  animation-duration: 3s;
+.aurora-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 0% 50%, rgba(0, 255, 198, 0.15), transparent 70%),
+              radial-gradient(circle at 100% 50%, rgba(59, 130, 246, 0.15), transparent 70%),
+              radial-gradient(circle at 50% 0%, rgba(147, 51, 234, 0.15), transparent 70%);
 }
 
-.tech-element:nth-child(2) {
-  animation-delay: 1s;
+.aurora-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle at center, rgba(0, 255, 198, 0.4), transparent);
+  filter: blur(120px);
+  animation: aurora-move 12s ease-in-out infinite alternate;
 }
 
-.tech-element:nth-child(3) {
-  animation-delay: 2s;
+.aurora-section::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle at center, rgba(147, 51, 234, 0.4), transparent);
+  filter: blur(120px);
+  animation: aurora-move 14s ease-in-out infinite alternate-reverse;
 }
 
-.tech-element:nth-child(4) {
-  animation-delay: 0.5s;
+@keyframes aurora-move {
+  from { transform: translate(0, 0); }
+  to { transform: translate(20%, 20%); }
 }
+
 </style>
