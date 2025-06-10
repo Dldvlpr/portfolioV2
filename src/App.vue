@@ -2,6 +2,12 @@
   <div class="min-h-screen overflow-hidden relative">
     <!-- Background animé -->
     <div class="fixed inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+      <!-- Effet Aurora -->
+      <div class="aurora-bg pointer-events-none">
+        <div class="aurora-item item1"></div>
+        <div class="aurora-item item2"></div>
+        <div class="aurora-item item3"></div>
+      </div>
       <!-- Particules flottantes -->
       <div class="absolute inset-0 overflow-hidden">
         <div v-for="i in 6" :key="i"
@@ -137,6 +143,60 @@ const getParticleStyle = (index: number) => {
 
 .animate-float {
   animation: float linear infinite;
+}
+
+/* Aurora background */
+.aurora-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.aurora-item {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  filter: blur(120px);
+  mix-blend-mode: screen;
+  opacity: 0.5;
+}
+
+.item1 {
+  top: -20%;
+  left: -10%;
+  background: radial-gradient(circle at center, rgba(0, 255, 198, 0.4), transparent);
+  animation: aurora1 10s ease-in-out infinite alternate;
+}
+
+.item2 {
+  bottom: -15%;
+  right: -15%;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.4), transparent);
+  animation: aurora2 12s ease-in-out infinite alternate;
+}
+
+.item3 {
+  top: 10%;
+  right: -20%;
+  background: radial-gradient(circle at center, rgba(147, 51, 234, 0.4), transparent);
+  animation: aurora3 14s ease-in-out infinite alternate;
+}
+
+@keyframes aurora1 {
+  from { transform: translate(-10%, -10%); }
+  to { transform: translate(10%, 10%); }
+}
+
+@keyframes aurora2 {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-20%, 5%); }
+}
+
+@keyframes aurora3 {
+  from { transform: translate(10%, -10%); }
+  to { transform: translate(-10%, 10%); }
 }
 
 /* Responsive */
